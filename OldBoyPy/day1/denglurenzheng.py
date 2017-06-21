@@ -23,7 +23,7 @@ while i <= 3:
         print('登陆成功！欢迎用户%s' % user)
         break
     else:
-        i+=1
+        i += 1
         print('用户名或密码错误')
 else:
     print('输入错误达3次，账户%s已锁定' % user) 

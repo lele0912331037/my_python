@@ -62,10 +62,11 @@ set1('yinxl', 24, job='科学家')
 set2('yinxl', 24, job='科学家')
 # 带上默认参数
 set1('yinxl', 24, '上海', job='科学家')
-set2('yinxl', 24, city='上海', job='科学家')
+set2('aaayinxl', 24, city='上海', job='科学家')
 # 带入多个可变参数
 set1('yinxl', 24, '上海', 'a', 'b')
 # set2('yinxl',24,'上海','a','b') 报错，set2没有可变参数
 # 带入关键字参数
 set1('yinxl', 24, '上海', 'a', 'b', c='123', d='456')
 set2('yinxl', 24, '上海', job='科学家', c='123', d='456')
+

@@ -17,37 +17,27 @@ def shop(user, my=15000):
         f.write(str1)
 
 
-def write_change(*kw):
-    # 购物列表
-    with open('./database/change.txt', 'w') as f:
-        f.write('\n'.join(kw))
-
-
 def file_type(file, wr=1, *args, **kwargs):
-    print(args, wr, file)
-    if wr == 1:
+    # 读取
+    if wr == 1 or wr == 4:
         with open('./database/{0}'.format(file), 'r') as f_read:
-            for item in f_read.readlines():
-                yield item
-    elif wr == 2:
-        with open('./database/{0}'.format(file), 'w+') as f_write:
-            f_write.write('\n'.join(args))
-    elif wr == 3:
-        print(args, wr, file)
-        with open('./database/{0}'.format(file), 'a+') as f_a:
-            f_a.write('\n{0}'.format(' '.join(args)))
-
-
-
-
-def write_shop(user, old_free, new_free):
-    with open('./database/shop.txt', 'r') as f:
-        lines = f.readlines()
-    with open('./database/shop.txt', 'w+') as f_w:
-        for line in lines:
-            if user in line:
-                line = line.replace(str(old_free), str(new_free))
-                f_w.write(line)
-                continue
-            f_w.write(line)
+            lines = f_read.readlines()
+        # 替换单个字符串
+        if wr == 4:
+            with open('./database/{0}'.format(file), 'w+') as f_w:
+                for line in lines:
+                    if kwargs['user'] in line:
+                        line = line.replace(str(kwargs['old']), str(kwargs['new']))
+                        f_w.write(line)
+                        continue
+                    f_w.write(line)
+        return lines
+    # 追加(2)或替换(3)
+    else:
+        if wr == 2:
+            wr_str = 'w+'
+        elif wr == 3:
+            wr_str = 'a+'
+        with open('./database/{0}'.format(file), wr_str) as f_a:
+            f_a.write('{0}\n'.format(' '.join(args)))
 

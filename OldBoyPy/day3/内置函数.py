@@ -18,7 +18,7 @@ print(len('123sd'))
 
 # all() 参数都为真，返回True
 print(all([1, 2, 3, 4, 5]))
-print(all([1, 2, 3, 0, 3])
+print(all([1, 2, 3, 0, 3]))
 
 # any() 参数有真时，返回True
 print(any([0, 0, 0, 4, 0]))
@@ -77,4 +77,6 @@ print(dir(module))
 val = hasattr(module, 'version')
 print(val)
 
-# string.join() 连接字符串数组。将字符串、元组、列表中的元素以指定的字符(分隔符)连接生成一个新的字符串
+# join()：    连接字符串数组。将字符串、元组、列表中的元素以指定的字符(分隔符)连接生成一个新的字符串
+# os.path.join()：  将多个路径组合后返回
+### 链接： http://www.cnblogs.com/jsplyy/p/5634640.html
