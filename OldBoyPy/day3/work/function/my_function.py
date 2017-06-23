@@ -10,14 +10,18 @@ def get_md5(user, pwd):
     return md5.hexdigest()
 
 
-def shop(user, my=15000):
-    # 注册用户默认有15000元
-    with open('./database/shop.txt', 'a+') as f:
-        str1 = '%s %s\n' % (user, my)
-        f.write(str1)
+def user_judge(username, table_list):
+    # 判断输入和文件内字符是否相等
+    for item in file_type(table_list):
+        item = item.split()
+        if username == item[0]:
+            return True, item
+    else:
+        return False
 
 
 def file_type(file, wr=1, *args, **kwargs):
+    # 对文件的操作,读取,追加,覆盖和替换
     # 读取
     if wr == 1 or wr == 4:
         with open('./database/{0}'.format(file), 'r') as f_read:
@@ -32,7 +36,7 @@ def file_type(file, wr=1, *args, **kwargs):
                         continue
                     f_w.write(line)
         return lines
-    # 追加(2)或替换(3)
+    # 覆盖(2),追加(3)
     else:
         if wr == 2:
             wr_str = 'w+'

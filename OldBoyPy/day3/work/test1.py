@@ -1,11 +1,18 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 
-def test(a, b, c=1, *args, **kwargs):
-    bb = ['1500']
-    print(a, b, c, args, kwargs)
+from function import my_function
+import os
+for x in my_function.file_type('db.txt'):
+    print(x)
+    x = x.split()
+    print(x[0])
 
+path = '/data/scripts/restart/auto_deploy/'
 
-test('aa', 'bb', user='yinxl', old='1500', new='200')
-aa = {'user': 'yinxl', 'old': '1500', 'new': '200'}
-print(aa['user'])
+print(path+'old_system_market3.sh')
+print('%sold_system_market3.sh' % path)
+os.system('ls {0}sold_system_market3'.format(path))
+
+li = (True, ['yinxl', 'eaf771f7c5217e240774f9c0ca5fa306'])
+print(li[1][1])
