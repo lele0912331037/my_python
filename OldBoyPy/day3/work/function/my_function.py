@@ -45,3 +45,16 @@ def file_type(file, wr=1, *args, **kwargs):
         with open('./database/{0}'.format(file), wr_str) as f_a:
             f_a.write('{0}\n'.format(' '.join(args)))
 
+
+def tack_function(user, tack_money):
+    tack_user = user_judge(user, 'shop.txt')
+    if tack_user:
+        old_money = int(tack_user[1][1])
+        if old_money < 0:
+            print('账户余额错误')
+        elif tack_money > old_money:
+            print('余额不足')
+        else:
+            new_money = old_money - tack_money
+            file_type('shop.txt', 4, user=str(user), old=str(old_money), new=str(new_money))
+            return True

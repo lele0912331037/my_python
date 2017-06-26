@@ -39,6 +39,7 @@ def login():
 
 
 def showlist(user):
+    # 购物函数，当前购买list，历史账单list，
     changes = []
     user_show_list = my_function.user_judge(user, 'shop.txt')
     if user_show_list:
@@ -64,19 +65,6 @@ def showlist(user):
         old_money = new_money
 
 
-def tack_function(user, tack_money):
-    tack_user = my_function.user_judge(user, 'shop.txt')
-    if tack_user:
-        old_money = int(tack_user[1][1])
-        if old_money < 0:
-            print('账户余额错误')
-        elif tack_money > old_money:
-            print('余额不足')
-        else:
-            new_money = old_money - tack_money
-            my_function.file_type('shop.txt', 4, user=str(user), old=str(old_money), new=str(new_money))
-            return True
-
 session_user = None
 while True:
     choose = input('请选择操作:\n1 注册\n2 登陆\n3 退出\n')
@@ -97,7 +85,7 @@ while True:
                 tack = my_function.user_judge(session_user, 'shop.txt')[1][1]
                 print('{0}的账户余额为：'.format(session_user), tack)
                 tack_value = int(input('请输入取款金额:'))
-                if tack_function(session_user, tack_value):
+                if my_function.tack_function(session_user, tack_value):
                     my_function.file_type('/database/bill/{0}_change.txt'.format(session_user), 3, time.strftime('%Y-%m-%d %H:%M:%S'), 'pos取款',
                                           str(tack_value))
                     print('取款成功，余额为：', tack)
