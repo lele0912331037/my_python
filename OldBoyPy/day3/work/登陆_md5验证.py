@@ -29,7 +29,7 @@ def login(username,password):
         else:
             print('please check username or password.')
 
-if __name__=='__main__':
+if __name__ == '__main__':
     while True:
         choose = input('1. regist;\n2. login;\n3. exit.\n')
         if choose == '1':

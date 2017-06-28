@@ -3,7 +3,7 @@
 
 # random 生成随机数
 import random
-import hashlib
+
 print(random.random())  # <0 >1 的浮点数
 print(random.randint(1, 5))  # >=1 <=5 的整数
 print(random.randrange(1, 5))  # >=1 <5 的整数
@@ -25,6 +25,8 @@ li = ['1', '2', '3', '4', '5']
 print('join,格式化list:', ':'.join(li))
 
 # md5加密 引用 hashlib模块
+import hashlib
+
 md5 = hashlib.md5()
 md5.update('admin'.encode('utf-8'))
 md5.update('@123'.encode('utf-8'))
@@ -71,20 +73,25 @@ print(json.load(open('test1.txt', 'r')))
 # re
 import re
 li = 'dfuui192.168.30.23dshjbe10.10.1.2rvbnk010-234444skrfebjasjw2016-03-04'
+
 # match 从头开始找
 result = re.match('\d+', li)
 print(result.group()) if result else print('nothing')
+
 # search 整个字符串
 result2 = re.search('\d+', li)
 print(result2.group() if result2 else print('nothing'))
+
 # findall 匹配所有满足条件
 result3 = re.findall('\d+', li)
 print(result3)
+
 # compile
 com = re.compile('(?:2[0-4]\d\.|25[0-5]\.|[01]?\d\d?\.){3}(?:2[0-4]\d|25[0-5]|[01]?\d\d?)')
 com1 = re.compile(r'(?:(?:[0-1]?\d{0,2}|2[0-4]\d|25[0-5])\.){3}(?:[0-1]?\d{0,2}|2[0-4]\d|25[0-5])')
 print(com.search(li).group(), '\n', com1.search(li).group())
 print(com.findall(li), "\n", com1.findall(li))
+
 # 正则表达式,匹配ip地址
 # (?: pattern)是非捕获型括号，匹配pattern，不捕获匹配结果
 # (?:(?:[0-1]?\d{0,2}|2[0-4]\d|25[0-5])\.){3}(?:[0-1]?\d{0,2}|2[0-4]\d|25[0-5])

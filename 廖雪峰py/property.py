@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 
 # 使用@property
+
+
 class Screen(object):
     @property
     def width(self):

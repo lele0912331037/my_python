@@ -3,10 +3,10 @@
 
 
 def count(n):
-    return lambda x,y:x-y
-print(count(1)(1,2))
+    return lambda x, y: x-y
+print(count(1)(1, 2))
 
-a = [(lambda x,i=i:i**i) for i in range(10)]
+a = [(lambda x, i=i:i**i) for i in range(10)]
 b = (lambda x, i=i: i**i for i in range(10))
 print('111', next(b)(2))
 for i in b:

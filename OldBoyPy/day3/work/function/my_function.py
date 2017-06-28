@@ -31,6 +31,7 @@ def file_type(file, wr=1, *args, **kwargs):
             with open('./database/{0}'.format(file), 'w+') as f_w:
                 for line in lines:
                     if kwargs['user'] in line:
+                        # kwargs['new'] 替换 kwargs['old']
                         line = line.replace(str(kwargs['old']), str(kwargs['new']))
                         f_w.write(line)
                         continue
