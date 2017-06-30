@@ -104,6 +104,7 @@ class Terran(Race):
 
     def add_point(self, virtue, value):
         self.virtue += value
+        return self.virtue
 
 
 class Datang(Terran):

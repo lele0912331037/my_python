@@ -32,10 +32,18 @@ print(user1.get_ab())
 functions.print_choose(**virtue_dict)
 while True:
     if user1.point > 0:
-        add_virtue = functions.print_choose(input('请选择要增加的属性，'), **virtue_dict)
-        add_point = functions.print_choose(input('请选择要增加的点数，'), *Add_point)
-        
+        add_virtue = functions.print_choose(input('请选择要增加的属性，突出输入0，'), **virtue_dict)
+        while True:
+            if user1.point > 0:
+                add_point = functions.print_choose(input('请选择要增加的点数,退出输入0，'), *Add_point)
+                if add_point == '0':
+                    break
+                user1.add_point(add_virtue, add_point)
+            else:
+                print('剩余属性点不足！')
+                break
     else:
+        print('没有多余属性点可加！')
         break
 
 print(user1.__dict__)
