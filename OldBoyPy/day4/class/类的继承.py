@@ -4,8 +4,8 @@
 
 class father(object):
 
-    def __init__(self):
-        self.Fname = 'father'
+    def __init__(self, name):
+        self.Fname = name
         print('father.__init__')
 
     def F_Func(self):
@@ -17,14 +17,14 @@ class father(object):
 
 class Son(father):
 
-    def __init__(self):
-        self.Son = 'Son'
+    def __init__(self,son):
+        self.Son = son
         print('Son.__init__')
         # 调用父类的__init__方法
         # 方法1
         father.__init__(self)
         # 方法2
-        super(Son, self).__init__()
+        #super(Son, self).__init__()
 
     def S_Func(self):
         print('Son.func')
@@ -35,12 +35,14 @@ class Son(father):
     def S_bad(self):
         father.bad(self)
         print('son.bad.function')
-
-set1 = Son()
-set1.S_Func()
-set1.F_Func()
-set1.bad()
+#set1 = father('555')
+set1 = Son('123')
+#set1 = Son('123')
+#print(set1)
+#set1.S_Func()
+#set1.F_Func()
+#set1.bad()
 print('\n')
-set1.S_bad()
+#set1.S_bad()
 
-Son()
+#Son()

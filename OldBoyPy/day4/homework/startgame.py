@@ -1,22 +1,42 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# from game_function import init_profession
-# from game_class import profession
-lists = ['逍遥生', '剑侠客', '飞燕女', '英女侠']
+from game_class import profession
+from game_function import functions
+Race_dict = {'Terran': '人族', 'Fairy': '仙族', 'Orcs': '兽族'}
+Profession_dict = {'Datang': '大唐官府', 'Huasheng': '化生寺', 'Fangcun': '方寸山', 'Nver': '女儿村'}
+virtue_dict = {'physique': '体质', 'mana': '法力', 'power': '力量', 'endurance': '耐力', 'agile': '敏捷'}
+Add_point = ['1', '2', '5', '10', '20', '50', '全部']
 
 
-def choose_ps(types=1, *args, **kwargs):
-    ps_list = args
-    print(ps_list)
-    if types == 1:
-        return ps_list
-    elif types == 2:
-        for num, item in enumerate(choose_ps(), 1):
-            if choose == str(num):
-                return item
-a = choose_ps(*lists)
-print(a)
-#for num, item in enumerate(choose_ps(*lists), 1):
-#    print(num, item)
-#choose = input('请选择你的角色:')
+
+
+# 打印种族列表
+functions.print_choose('', **Race_dict)
+# 获取种族类
+ps = functions.print_choose(input('请选择你的种族:'), **Race_dict)
+# 打印职业列表
+functions.print_choose(**Profession_dict)
+# 获取职业选择
+ps_choose = functions.print_choose(input('请选择职业：'), **Profession_dict)
+print(ps_choose)
+# 初始化实例
+user_import = __import__('game_class.profession', fromlist=True)
+func = getattr(user_import, ps_choose[0])
+user1 = func(ps_choose[1], ps[1])
+# 打印实例的种族和职业
+print(user1.get_race())
+user1.grade = 120
+print(user1.get_ab())
+# 打印初始化属性
+functions.print_choose(**virtue_dict)
+while True:
+    if user1.point > 0:
+        add_virtue = functions.print_choose(input('请选择要增加的属性，'), **virtue_dict)
+        add_point = functions.print_choose(input('请选择要增加的点数，'), *Add_point)
+        
+    else:
+        break
+
+print(user1.__dict__)
+
