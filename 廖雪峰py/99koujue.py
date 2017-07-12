@@ -80,6 +80,25 @@ for key in num:
             break
     print(" ")
 
+# 方法2
+for key in num:
+    for item in num:
+        Sum = '%s%s%s' % (item, key, num[item] * num[key])
+        #print(Sum, end=' ')
+        print(Sum, end=' ')
+        if key == item:
+            num2 = num['一']
+            break
+        if len(Sum) == 4:
+            if Sum[3] == '0':
+                Sum1 = find_num(int(Sum[2])) + '十'
+            else:
+                Sum1 = find_num(int(Sum[2])) + '十' + find_num(int(Sum[3]))
+        else:
+            Sum1 = '得' + find_num(int(Sum[2]))
+        Sum = find_num(int(Sum[0])) + find_num(int(Sum[1])) + Sum1
+    print(" ")
+
 
 numA = {'1': '一', '2': '二', '3': '三', '4': '四', '5': '五', '6': '六', '7': '七', '8': '八', '9': '九', '0': '十'}
 
