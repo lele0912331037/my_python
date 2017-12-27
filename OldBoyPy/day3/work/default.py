@@ -60,7 +60,7 @@ def showlist(user):
         print('购买的商品如下:\n商品名称 价格 数量')
         for change_item in changes:
             print(change_item)
-            my_function.file_type('./database/bill/{0}_change.txt'.format(user), 3, time.strftime('%Y-%m-%d %H:%M:%S'), 'pos刷卡', change_item)
+            my_function.file_type('bill/{0}_change.txt'.format(user), 3, time.strftime('%Y-%m-%d %H:%M:%S'), 'pos刷卡', change_item)
         my_function.file_type('shop.txt', 4, user=str(user), old=str(old_money), new=str(new_money))
         old_money = new_money
 
@@ -86,7 +86,7 @@ while True:
                 print('{0}的账户余额为：'.format(session_user), tack)
                 tack_value = int(input('请输入取款金额:'))
                 if my_function.tack_function(session_user, tack_value):
-                    my_function.file_type('/database/bill/{0}_change.txt'.format(session_user), 3, time.strftime('%Y-%m-%d %H:%M:%S'), 'pos取款',
+                    my_function.file_type('bill/{0}_change.txt'.format(session_user), 3, time.strftime('%Y-%m-%d %H:%M:%S'), 'pos取款',
                                           str(tack_value))
                     print('取款成功，余额为：', tack)
             elif choose_ch == '3':
@@ -94,7 +94,7 @@ while True:
                 print('用户', session_user, '的余额为人民币', user_money[1][1], '元')
             elif choose_ch == '4':
                 print('时间 消费类型 商品名称 商品价格 数量')
-                for changelist in my_function.file_type('/database/bill/{0}_change.txt'.format(session_user)):
+                for changelist in my_function.file_type('bill/{0}_change.txt'.format(session_user)):
                     print(changelist.strip())
             elif choose_ch == '5':
                 session_user = None
