@@ -80,26 +80,6 @@ for key in num:
             break
     print(" ")
 
-# 方法2
-for key in num:
-    for item in num:
-        Sum = '%s%s%s' % (item, key, num[item] * num[key])
-        #print(Sum, end=' ')
-        print(Sum, end=' ')
-        if key == item:
-            num2 = num['一']
-            break
-        if len(Sum) == 4:
-            if Sum[3] == '0':
-                Sum1 = find_num(int(Sum[2])) + '十'
-            else:
-                Sum1 = find_num(int(Sum[2])) + '十' + find_num(int(Sum[3]))
-        else:
-            Sum1 = '得' + find_num(int(Sum[2]))
-        Sum = find_num(int(Sum[0])) + find_num(int(Sum[1])) + Sum1
-    print(" ")
-
-
 numA = {'1': '一', '2': '二', '3': '三', '4': '四', '5': '五', '6': '六', '7': '七', '8': '八', '9': '九', '0': '十'}
 
 # 方法2
@@ -131,3 +111,20 @@ for x in range(1, 10):
         Sum = numA[Sum[0]] + numA[Sum[1]] + Sum1
         print(Sum, end=' ')
     print(' ')
+
+# 方法4
+a = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+b = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '']
+c = ''
+for i in range(1, len(a)):
+    for j in range(1, i+1):
+        Sum = j*i
+        if Sum < 10:
+            c += '%s%s得%s ' % (j, i, Sum)
+        else:
+            Sum = str(Sum)[0]+'十'+str(Sum)[1]
+            c += '%s%s%s ' % (j, i, Sum)
+    c += "\n"
+#for x in range(0, len(a)):
+#    c = c.replace(a[x], b[x])
+print(c)

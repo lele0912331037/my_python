@@ -21,8 +21,8 @@ for i in range(6):
 print(a)
 
 # join,格式化list
-li = ['1', '2', '3', '4', '5']
-print('join,格式化list:', ':'.join(li))
+li = ['1\r\n11', '2', '3', '4', '5']
+print('join,格式化list:', '\n'.join(li))
 
 # md5加密 引用 hashlib模块
 import hashlib
