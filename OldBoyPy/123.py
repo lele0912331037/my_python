@@ -23,3 +23,5 @@ a = name_dic['pull_request']['title']
 os.environ['abc']=str(a)
 print(a)
 os.system('echo $abc')
+value1,value2 = '123', 'abc'
+print(value1,value2)
